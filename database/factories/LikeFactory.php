@@ -3,16 +3,16 @@
 namespace Database\Factories;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Like;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Like>
  */
-class PostFactory extends Factory
+class LikeFactory extends Factory
 {
-
-    protected $model = Post::class;
+    protected $model = Like::class;
 
     /**
      * Define the model's default state.
@@ -24,8 +24,7 @@ class PostFactory extends Factory
         return [
             //
             'user_id' => User::factory(), // 追加
-            'title' => $this->faker->sentence(), // 追加
-            'content' => $this->faker->realText(130), // 追加
+            'post_id' => Post::factory(), // 追加
         ];
     }
 }

@@ -12,15 +12,21 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('dashboard')"  :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-
                 </div>
             </div>
 
+
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+                <a href="{{ route('post.index') }}" class="mr-5 cursor-pointer text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                    みんなの投稿
+                </a>
+                <a href="{{ route('post.create') }}" class="mr-5 cursor-pointer text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                    投稿を作成
+                </a>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
@@ -47,6 +53,7 @@
                         </form>
                     </x-slot>
                 </x-dropdown>
+
             </div>
 
             <!-- Hamburger -->
@@ -87,6 +94,7 @@
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
+
             </div>
         </div>
     </div>

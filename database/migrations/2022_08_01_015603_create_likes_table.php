@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->comment('投稿者のID');
-            $table->string('title')->comment('投稿のタイトル');
-            $table->string('content')->comment('投稿内容');
+            $table->unsignedBigInteger('user_id')->comment('いいねをしたユーザー');
+            $table->unsignedBigInteger('post_id')->comment('いいねが押された投稿');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('likes');
     }
 };
